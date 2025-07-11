@@ -1,0 +1,20 @@
+@for (stat of STATS; track $index) {
+    <p [class]="'col-s-1 col-e-5 row-s-' + ($index * 2 + 1)">
+        <label [for]="stat">
+            <span class="col-s-1 col-e-2">{{stat.charAt(0).toUpperCase() + stat.slice(1)}}:</span>
+            <select class="col-s-3 col-e-3" [value]="stats[stat]" [name]="stat" [id]="stat" (change)="handleSelect($event)">
+                @if (stats[stat] == 0) {
+                    <option value="0" selected disabled>SELECT</option>
+                } @else {
+                    <option [value]="0">Unselect</option>
+                }
+                @for (value of valuesCopy; track $index) {
+                    <option [value]="value" [hidden]="valuesShow[$index] == false">{{value}} points</option>
+                }
+            </select>
+        </label>
+    </p>
+    @if ($index < 5) {
+        <hr [class]="'row-s-' + ($index * 2 + 2)" />
+    }
+}

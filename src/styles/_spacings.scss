@@ -1,0 +1,36 @@
+$dirs : (
+  x: x,
+  y: y, 
+  t: top,
+  b: bottom,
+  l: left,
+  r: right
+);
+
+@for $i from 1 through 10 {
+  .p-#{$i} {
+    padding: #{$i}rem;
+  }
+  .m-#{$i} {
+    padding: #{$i}rem;
+  }
+
+  @each $key, $value in $dirs {
+    .p#{$key}-#{$i} {
+      padding-#{$value}: #{$i}rem;
+    }
+    .m#{$key}-#{$i} {
+      margin-#{$value}: #{$i}rem;
+    }
+  }
+}
+
+@for $i from 0 through 20 {
+  .w-#{$i * 5} {
+    width: #{$i * 5%};
+  }
+
+  .h-#{$i * 5} {
+    height: #{$i * 5%};
+  }
+}

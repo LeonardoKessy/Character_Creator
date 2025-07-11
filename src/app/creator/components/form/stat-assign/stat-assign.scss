@@ -1,0 +1,39 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr 1px) 1fr;
+
+  p {
+    label {
+      height: 100%;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr;
+      align-items: center; 
+
+      span, select {
+        display: flex;
+        align-items: center;
+        height: 2rem;
+        font-family: var(--title-font);
+        font-weight: 600;
+      }
+
+      select {
+        border: 1px solid var(--red-accent);
+        border-radius: 5px;
+        overflow: hidden;
+
+        option {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid var(--dark-accent);
+  }
+}

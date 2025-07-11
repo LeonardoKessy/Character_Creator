@@ -1,0 +1,14 @@
+@for $i from 1 through 20 {
+  .col-e-#{$i} {
+    grid-column-end: span #{$i};
+  }
+  .col-s-#{$i} {
+    grid-column-start: #{$i};
+  }
+  .row-e-#{$i} {
+    grid-row-end: span #{$i};
+  }
+  .row-s-#{$i} {
+    grid-row-start: #{$i};
+  }
+}

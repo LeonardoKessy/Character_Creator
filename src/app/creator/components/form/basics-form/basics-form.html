@@ -1,0 +1,43 @@
+<p class="col-s-1 col-e-1 row-s-1 row-e-1">
+    <label for="name">
+        <span>Name:</span>     
+        <input type="text" [(ngModel)]="char.name" (input)="updateCharacter()" maxlength="20">
+    </label>
+</p>
+<p class="col-s-1 col-e-1 row-s-2 row-e-4">
+    <label for="background" class="background">
+        <span>Background:</span>     
+        <textarea name="background" id="backgroundInput" [(ngModel)]="char.background" (input)="updateCharacter()"></textarea>
+    </label>
+</p>
+<p class="col-s-1 col-e-1 row-s-6 row-e-1">
+    <label for="class">
+        <span>Class:</span>
+        <select name="class" id="class" [(ngModel)]="char.characterClass" (change)="updateCharacter()">
+            <option value="" selected disabled>None</option>
+            @for (class of classes | async; track $index) {
+                <option [value]="class.id">{{class.name}}</option>
+            }
+        </select>
+    </label>
+</p>
+<p class="col-s-1 col-e-1 row-s-7 row-e-1">
+    <label for="race">
+        <span>Race:</span>
+        <select name="race" id="race" [(ngModel)]="char.race" (change)="updateCharacter()">
+            <option value="" selected disabled>None</option>
+            @for (race of races | async; track $index) {
+                <option [value]="race.id">{{race.name}}</option>
+            }
+        </select>
+    </label>
+</p>
+@if (raceStats) {
+<p class="col-s-1 col-e-1 row-s-8 row-e-1">
+    @for (stat of STATS; track $index) {
+        @if (raceStats[stat] > 0) {
+            <span>{{stat.charAt(0).toUpperCase() + stat.slice(1) + ": +" + raceStats[stat]}}</span>
+        }
+    }
+</p>
+}

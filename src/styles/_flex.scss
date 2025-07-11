@@ -1,0 +1,18 @@
+.flex {
+  display: flex;
+}
+
+@each $key, $value in (col: column, row: row) {
+  .flex-#{$key} {
+    flex-direction: #{$value};
+  }
+}
+
+@each $key, $value in (s: flex-start, e: flex-end, c: center) {
+  .align-#{$key} {
+    align-items: #{$value};
+  }
+  .justify-#{$key} {
+    justify-content: #{$value};
+  }
+}
