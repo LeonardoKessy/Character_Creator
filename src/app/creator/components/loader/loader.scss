@@ -1,0 +1,25 @@
+:host {
+  padding: 1rem;
+  color: var(--light-text);
+  font-family: var(--title-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  & > * {
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+
+  select {
+    height: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0 .5rem;
+    font-size: 1.1rem;
+    border: 1px solid var(--red-accent);
+    border-radius: .2rem;
+    font-family: var(--text-font);
+    font-weight: 600;
+  }
+}

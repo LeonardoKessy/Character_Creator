@@ -35,7 +35,13 @@
       color: var(--light-accent);
       cursor: pointer;
 
-      &:hover {
+      &.disabled {
+        background: linear-gradient(to top, var(--bgc2), var(--disabled), var(--bgc2));
+        color: var(--dark-text);
+        cursor: default;
+      }
+
+      &:hover:not(.disabled) {
         background: linear-gradient(to top, var(--bgc1), var(--red-accent));
       }
     }

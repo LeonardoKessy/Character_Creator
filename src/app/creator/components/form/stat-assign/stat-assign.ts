@@ -16,7 +16,7 @@ export class StatAssign implements OnInit {
   values: number[] = [];
   valuesCopy: number[] = [];
   valuesShow: boolean[] = Array(6).fill(true);
-  stats : Stats = basicStats;
+  stats : Stats = {...basicStats};
 
   constructor(private characterBuilder: CharacterBuilder) {}
 
@@ -28,7 +28,7 @@ export class StatAssign implements OnInit {
 
   handleSelect(e: Event) {
     const target = e.target as HTMLSelectElement;
-    const stat = target.name as Exclude<keyof Stats, 'id'>;
+    const stat = target.name as Exclude<keyof Stats, 'id' | 'race'>;
     const val = parseInt(target.value);
     const prev = this.stats[stat]; 
     const index = target.selectedIndex;

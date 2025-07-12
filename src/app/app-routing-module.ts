@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home/pages/home-page/home-page';
 import { CreatorPage } from './creator/pages/creator-page/creator-page';
+import { MemoryPage } from './creator/pages/memory-page/memory-page';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: "creator",
     component: CreatorPage 
+  },
+  {
+    path: "memory",
+    component: MemoryPage
   },
   {
     path: "*",

@@ -1,0 +1,7 @@
+<h4>See previously built characters here</h4>
+<select [(ngModel)]="characterId" (ngModelChange)="selectCharacter()" name="character" id="character" >
+    <option value="" disabled selected>None</option>
+    @for (char of characters; track $index) {
+        <option [value]="char.id">{{char.name}}</option>
+    }
+</select>

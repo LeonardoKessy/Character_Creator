@@ -1,7 +1,8 @@
 <h3>{{character.name ? character.name : "Name here..."}}</h3>
 <h4>
-    {{(race | async)?.name ? (race | async)?.name : "[Race]"}} 
-    {{(class | async)?.name ? (class | async)?.name : "[Class]"}}</h4>
+    {{(race$ | async)?.name ? (race$ | async)?.name : "[Race]"}} 
+    {{(class$ | async)?.name ? (class$ | async)?.name : "[Class]"}}
+</h4>
 
 <div class="statsCont">
     @for (stat of STATS; track $index) {
@@ -11,7 +12,7 @@
                 @for (i of range; track $index) {
                     @if ($index < stats[stat]) {
                         <div class="point c1"></div>
-                    } @else if ($index < stats[stat] + raceStats[stat]) {
+                    } @else if (building && $index < stats[stat] + raceStats[stat]) {
                         <div class="point c2"></div>
                     } @else {
                         <div class="point"></div>

@@ -4,6 +4,6 @@ export interface Character {
   background: string,
   race: string,
   characterClass: string,
-  baseStats: string,
+  stats: string,
   level: number
 }

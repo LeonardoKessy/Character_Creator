@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { BasicsForm } from './components/form/basics-form/basics-form';
 import { StatAssign } from './components/form/stat-assign/stat-assign';
 import { StatGenerator } from './components/form/stat-generator/stat-generator';
+import { MemoryPage } from './pages/memory-page/memory-page';
+import { Loader } from './components/loader/loader';
 
 
 
@@ -18,6 +20,8 @@ import { StatGenerator } from './components/form/stat-generator/stat-generator';
     BasicsForm,
     StatAssign,
     StatGenerator,
+    MemoryPage,
+    Loader,
   ],
   imports: [
     CommonModule,

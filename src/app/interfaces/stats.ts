@@ -5,5 +5,6 @@ export interface Stats {
   con: number,
   int: number,
   wis: number,
-  cha: number
+  cha: number,
+  race: boolean
 }

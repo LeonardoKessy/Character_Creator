@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { CharacterBuilder } from '../../services/character-builder';
 import { STATS } from '../../utils/validStats';
 import { Class } from '../../../interfaces/class';
@@ -20,26 +20,37 @@ export class Previewer implements OnInit{
   range = Array(20);
   constructor (
     private characterBuilder: CharacterBuilder,
-    private dataStorage: DataStorage
+    private dataStorage: DataStorage,
+    private cd: ChangeDetectorRef
   ) {}
 
   character: Character = {...basicCharacter};
-  stats: Stats = {...basicStats};
   raceStats: Stats = {...basicStats};
-  class: Observable<Class | undefined> = of(undefined);
-  race: Observable<Race | undefined> = of(undefined);
+  stats: Stats = {...basicStats}
+  class$: Observable<Class | undefined> = of(undefined);
+  race$: Observable<Race | undefined> = of(undefined);
   
+  @Input() building: boolean = true;
+
   ngOnInit(): void {
+    this.characterBuilder.reset();
     this.characterBuilder.character$.subscribe(c => {
       this.character = c;
-      this.class = this.dataStorage.class(c.characterClass);
-      this.race = this.dataStorage.race(c.race);
+      this.class$ = this.dataStorage.class(c.characterClass);
+      this.race$ = this.dataStorage.race(c.race);
     });
 
-    this.characterBuilder.raceStats.subscribe(
+    if (this.building) {
+      this.characterBuilder.raceStats.subscribe(
       r => this.raceStats = r ? r : this.raceStats
     )
+    }
+
     this.characterBuilder.stats$.subscribe(
-      s => this.stats = s);
+      s => {
+        this.stats = {...s}
+        this.cd.detectChanges();
+      }
+    )
   }
 }

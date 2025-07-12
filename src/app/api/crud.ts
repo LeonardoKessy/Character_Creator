@@ -27,14 +27,13 @@ export abstract class Crud<T> {
   get(id: string): Observable<T | null> {
     return this.http.get<T[]>(`${SUPABASE_URL}/${this.table}?id=eq.${id}`, {
       headers: this.headers
-    })
-      .pipe(map(r => (r.length > 0 ? r[0] : null)));
+    }).pipe(map(r => (r.length > 0 ? r[0] : null)));
   }
 
-  insert(body: Partial<T>): Observable<T> {
-    return this.http.post<T>(`${SUPABASE_URL}/${this.table}`, body, {
+  insert(body: Partial<T>): Observable<T | null> {
+    return this.http.post<T[]>(`${SUPABASE_URL}/${this.table}`, body, {
       headers: this.headers
-    });
+    }).pipe(map(r => (r.length > 0 ? r[0] : null)));;
   }
 
   delete(id: string) {

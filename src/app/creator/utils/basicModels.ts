@@ -7,7 +7,7 @@ export const basicCharacter: Character = {
   background: "",
   race: "",
   characterClass: "",
-  baseStats: "",
+  stats: "",
   level: 1
 }
 
@@ -18,5 +18,6 @@ export const basicStats: Stats = {
   dex: 0, 
   int: 0, 
   wis: 0, 
-  cha: 0
+  cha: 0,
+  race: false
 }

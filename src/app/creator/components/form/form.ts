@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterBuilder } from '../../services/character-builder';
 
 
 @Component({
@@ -8,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './form.scss'
 })
 
-export class Form {
+export class Form implements OnInit{
+
+  ngOnInit(): void {
+    this.characterBuilder.reset()
+  }
+
+  constructor(private characterBuilder: CharacterBuilder) {}
+
   values: number[] = [];
   handleFinish(values: any[][]) {
     let ready: boolean = values[0].find((x: string) => x != 'READY');
@@ -16,5 +24,9 @@ export class Form {
     this.values = values[1];
   }
 
-  
+  disabled: boolean = false;
+
+  save() {
+    this.disabled = this.characterBuilder.upload();
+  } 
 }

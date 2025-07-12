@@ -2,12 +2,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataStorage } from '../../../shared/services/data-storage';
 
 @Component({
-  selector: 'app-creator-page',
+  selector: 'app-memory-page',
   standalone: false,
-  templateUrl: './creator-page.html',
-  styleUrl: './creator-page.scss',
+  templateUrl: './memory-page.html',
+  styleUrl: './memory-page.scss',
 })
-export class CreatorPage implements OnInit {
+
+export class MemoryPage implements OnInit{
 
   constructor (
     private dataStorage: DataStorage,
@@ -16,5 +17,4 @@ export class CreatorPage implements OnInit {
   ngOnInit(): void {
     this.dataStorage.load();
   }
-
 }
