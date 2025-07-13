@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, switchMap, take, tap } from 'rxjs';
 import { Character } from '../../interfaces/character';
 import { Stats } from '../../interfaces/stats';
 import { basicCharacter, basicStats } from '../utils/basicModels';
@@ -64,10 +64,11 @@ export class CharacterBuilder {
     }
 
     let char = this._character.getValue();
-    if (char.name === "" || char.race === "" || char.characterClass === "" )
+    if (char.name == "" || char.race == "" || char.characterClass == "" )
       return false;
 
     this.raceStats.pipe(
+      take(1),
       switchMap(raceStats => {
         for (let stat of STATS) {
           if (raceStats != undefined)
@@ -85,6 +86,7 @@ export class CharacterBuilder {
         return of(null);
       }),
     ).subscribe();
+    console.log("Uploaded")
     return true;
   }
 }

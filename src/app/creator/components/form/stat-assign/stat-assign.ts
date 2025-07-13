@@ -21,8 +21,9 @@ export class StatAssign implements OnInit {
   constructor(private characterBuilder: CharacterBuilder) {}
 
   ngOnInit(): void {
-   this.values = [...this.rolledValues]; 
-   this.valuesCopy = [...this.values];
+    this.values = [...this.rolledValues]; 
+    this.valuesCopy = [...this.values];
+    this.valuesCopy.sort(function(a, b) {return a - b;});
   }
 
 
