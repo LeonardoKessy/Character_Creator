@@ -2,14 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Header } from './components/header/header';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BasicPopup } from './components/basic-popup/basic-popup';
 
 @NgModule({
   declarations: [
-    Header
+    Header,
+    BasicPopup
   ],
   imports: [
     CommonModule, 
-    RouterModule
+    RouterModule,
+    MatDialogModule
   ],
   exports: [
     Header

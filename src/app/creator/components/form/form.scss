@@ -36,7 +36,7 @@
       cursor: pointer;
 
       &.disabled {
-        background: linear-gradient(to top, var(--bgc2), var(--disabled), var(--bgc2));
+        background: linear-gradient(to top, var(--disabled), var(--bgc2));
         color: var(--dark-text);
         cursor: default;
       }

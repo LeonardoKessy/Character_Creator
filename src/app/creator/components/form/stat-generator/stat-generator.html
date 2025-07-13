@@ -1,6 +1,6 @@
 <div class="row col-s-1 col-e-5 row-s-0 row-e-1">
     <div class="top col-s-1 col-e-4">Rolls</div>
-    <div class="top total col-s-5 col-e-1"><span>Total</span></div>
+    <div class="top  col-s-5 col-e-1"><span>Total</span></div>
 </div>
 @for (arr of rolls; let i = $index; track i) {
     <div [class]="'row col-s-1 col-e-5 row-s-' + (i * 2 + 2) + ' row-e-1'">
@@ -22,5 +22,5 @@
 
 <div class="row control col-s-1 col-e-5 row-s-14 row-e-1">
     <div class="top col-s-1 col-e-4" (click)="emitFinish()">Finish rolling</div>
-    <div class="top col-s-5 col-e-1">Help</div>
+    <div class="top col-s-5 col-e-1" (click)="openHelp()">Help</div>
 </div>

@@ -1,4 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupService } from '../../../../shared/services/popup-service';
+
 
 @Component({
   selector: 'app-stat-generator',
@@ -7,7 +10,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrl: './stat-generator.scss'
 })
 export class StatGenerator implements OnInit{
-  constructor() {}
+  constructor(
+  private popup: PopupService
+  ) {}
+
   D6 = './assets/icons/game-icons/D6.svg';
   rolls: number[][] = [[], [], [], [], [], []];
   totals: number[] = [];
@@ -58,5 +64,9 @@ export class StatGenerator implements OnInit{
       if (k == j) continue;
       this.totals[i] += this.rolls[i][k];
     }
+  }
+
+  openHelp() {
+    this.popup.openHelp();
   }
 }

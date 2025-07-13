@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 90vh;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--red-accent);
+  border-radius: 1rem;
+  
+  div {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 1rem;
+
+    & > span {
+    font-family: var(--title-font);
+    font-size: 1.5rem;
+    margin-bottom: .3rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 1rem 0rem;
+    }
+
+    .red {
+      color: var(--red-accent);
+    }
+
+    .bold {
+      font-weight: 600;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+  }
+}

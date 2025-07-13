@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterBuilder } from '../../services/character-builder';
+import { PopupService } from '../../../shared/services/popup-service';
 
 
 @Component({
@@ -15,7 +16,10 @@ export class Form implements OnInit{
     this.characterBuilder.reset()
   }
 
-  constructor(private characterBuilder: CharacterBuilder) {}
+  constructor(
+    private characterBuilder: CharacterBuilder,
+    private popup: PopupService
+   ) {}
 
   values: number[] = [];
   handleFinish(values: any[][]) {
@@ -28,5 +32,11 @@ export class Form implements OnInit{
 
   save() {
     this.disabled = this.characterBuilder.upload();
+    if (this.disabled) {}
+      this.popup.openBasic("Character has been uploaded succesfully.")
   } 
+
+  openHelp() {
+   this.popup.openHelp()
+  }
 }

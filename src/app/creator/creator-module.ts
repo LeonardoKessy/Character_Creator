@@ -9,6 +9,7 @@ import { StatAssign } from './components/form/stat-assign/stat-assign';
 import { StatGenerator } from './components/form/stat-generator/stat-generator';
 import { MemoryPage } from './pages/memory-page/memory-page';
 import { Loader } from './components/loader/loader';
+import { HelpPopup } from './components/form/help-popup/help-popup';
 
 
 
@@ -22,6 +23,7 @@ import { Loader } from './components/loader/loader';
     StatGenerator,
     MemoryPage,
     Loader,
+    HelpPopup,
   ],
   imports: [
     CommonModule,
