@@ -86,7 +86,6 @@ export class CharacterBuilder {
         return of(null);
       }),
     ).subscribe();
-    console.log("Uploaded")
     return true;
   }
 }
